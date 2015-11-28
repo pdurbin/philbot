@@ -235,7 +235,7 @@ sub ansi_color_codes {
 sub linkify {
     my $url = shift;
     my $display_url = $url;
-    if (length($display_url) >= 50){
+    if (length($display_url) >= 300){
         $display_url
             = substr( $display_url, 0, 30 )
             . '[…]'
