@@ -4,6 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
     <meta name="description" content="IRC LOG for channel #<TMPL_VAR CHANNEL>" />
+    <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" type="text/css" href="<TMPL_VAR BASE_URL>style.css" title="Irclog Stylesheet" />
     <link rel="shortcut icon" href="<TMPL_VAR BASE_URL>moose1.ico" type="image/x-icon" />
     <link rel="canonical" 
@@ -57,9 +58,9 @@
 			<th>Range</th>
 			<th>Single</th>
 		</TMPL_IF>
-            <th>Time</th>
+            <th width="19%">Time</th>
             <th class="summary">S</th>
-            <th>Nick</th>
+            <th width="24%">Nick</th>
             <th>Message</th>
         </tr>
         <TMPL_LOOP MESSAGES>

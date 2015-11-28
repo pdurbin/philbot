@@ -3,6 +3,11 @@ body {
 	color: black;
 }
 
+table {
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+
 h1, h2, h3,  #footer * { 
     color: #70709f; 
     clear: left;
