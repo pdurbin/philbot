@@ -41,6 +41,13 @@ sub get_index {
 
 	while (my @row = $sth->fetchrow_array()){
 		$row[0] =~ s/^\#//;
+                next if $row[0] =~  m/(
+javaee|
+northeastlinuxfest|
+pdurbin|
+spanworm|
+wonderstudy
+)/x;
 		push @channels, { channel => $row[0] };
 	}
 
