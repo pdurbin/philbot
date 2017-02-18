@@ -386,13 +386,14 @@ my %output_chain = (
         static_links => {
              re     => $re_links,
              match  => \&expand_links,
-             rest   => 'rt_links'
+             #rest   => 'rt_links'
+             rest   => 'irc_channel_links'
         },
-        rt_links     => {
-             re     => qr{(?i:\btt\s*)?#\d{2,6}\b},
-             match  => \&rt_links,
-             rest   => 'irc_channel_links',
-        },
+        #rt_links     => {
+        #     re     => qr{(?i:\btt\s*)?#\d{2,6}\b},
+        #     match  => \&rt_links,
+        #     rest   => 'irc_channel_links',
+        #},
         irc_channel_links => {
             re      => qr{#(?:perl6-soc|perl6|parrot|cdk|bioclipse|parrotsketch)\b},
             match   => \&irc_channel_links,
