@@ -224,15 +224,17 @@ sub irclog_output {
             IS_SUMMARY  => $summary,
         );
 
-# check if previous/next date exists in database
+# Originally, check if previous/next date exists in database (commented out).
+# Now, just always show the previous/next links.
     {
-        my $q1 = $dbh->prepare('SELECT COUNT(*) FROM irclog '
-                . 'WHERE channel = ? AND day = ? AND NOT spam');
+        #my $q1 = $dbh->prepare('SELECT COUNT(*) FROM irclog '
+        #        . 'WHERE channel = ? AND day = ? AND NOT spam');
         # Date::Simple magic ;)
         my $tomorrow = date($date) + 1;
-        $q1->execute($full_channel, $tomorrow);
-        my ($res) = $q1->fetchrow_array();
-        if ($res || $tomorrow eq gmt_today()){
+        #$q1->execute($full_channel, $tomorrow);
+        #my ($res) = $q1->fetchrow_array();
+        #if ($res || $tomorrow eq gmt_today()){
+        if (1){
             my $next_url = $base_url . "$channel/$tomorrow";
             # where the hell does the leading double slash come from?
             $next_url =~ s{^//+}{/};
@@ -240,9 +242,10 @@ sub irclog_output {
         }
 
         my $yesterday = date($date) - 1;
-        $q1->execute($full_channel, $yesterday);
-        ($res) = $q1->fetchrow_array();
-        if ($res){
+        #$q1->execute($full_channel, $yesterday);
+        #($res) = $q1->fetchrow_array();
+        #if ($res){
+        if (1){
             my $prev_url = $base_url . "$channel/$yesterday";
             $prev_url =~ s{^//+}{/};
             $t->param(PREV_URL => $prev_url);
