@@ -5,6 +5,7 @@ use Calendar::Simple;
 use CGI::Carp qw(fatalsToBrowser);
 use CGI;
 use Config::File;
+use HTML::Entities;
 use HTML::Template;
 use Cache::FileCache;
 use lib 'lib';
@@ -19,6 +20,8 @@ go();
 sub go {
     my $q = CGI->new;
     my $channel = $q->url_param('channel');
+    # Prevent XSS from e.g. BASE_URL/%3Csvg%20onload=alert('XSS')%3E/
+    $channel = HTML::Entities::encode($channel);
     print "Content-Type: text/html; charset=utf-8\n\n";
 
     if ($conf->{NO_CACHE}) {
